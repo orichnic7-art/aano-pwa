@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#172B36">
+  <meta name="description" content="AANO — আপনার দরকার, আমাদের দায়িত্ব।">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <title>AANO — Anything you need</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">A</div><div><b>AANO</b><small>আপনার দরকার, আমাদের দায়িত্ব।</small></div></div>
+      <button class="icon-btn" id="locationBtn" aria-label="লোকেশন">⌖ <span id="locationText">ঢাকা</span></button>
+    </header>
+
+    <main id="app">
+      <section class="hero">
+        <div class="hero-copy"><span class="eyebrow">আপনার দৈনন্দিন সহকারী</span><h1>যা দরকার,<br><em>আনিয়ে নিন।</em></h1><p>কেনাকাটা থেকে পার্সেল—আপনার কাজটি AANO-কে বলুন।</p><button class="primary-btn" data-action="new-order">রিকোয়েস্ট তৈরি করুন <span>→</span></button></div>
+        <div class="hero-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="parcel">A</div><span class="spark s1">✦</span><span class="spark s2">✳</span><span class="art-caption">ON DEMAND<br>ASSISTANCE</span></div>
+      </section>
+
+      <section class="section-head"><div><span class="eyebrow">SERVICES</span><h2>আপনার কী প্রয়োজন?</h2></div><button class="text-btn" data-action="all-services">সব দেখুন</button></section>
+      <div class="service-grid" id="serviceGrid"></div>
+
+      <section class="search-card">
+        <div><span class="eyebrow">QUICK FIND</span><h3>কী খুঁজছেন?</h3><p>সার্ভিস বা পণ্যের নাম লিখুন</p></div>
+        <div class="search-wrap"><span>⌕</span><input id="searchInput" placeholder="যেমন: বাজার, ডকুমেন্ট, পার্সেল..." autocomplete="off"><button id="clearSearch" aria-label="মুছুন">×</button></div>
+        <div id="searchResults" class="search-results hidden"></div>
+      </section>
+
+      <section class="section-head"><div><span class="eyebrow">HOW IT WORKS</span><h2>মাত্র ৩টি ধাপ</h2></div></section>
+      <div class="steps"><div><b>01</b><strong>রিকোয়েস্ট দিন</strong><span>কী লাগবে ও কোথায় লাগবে জানান।</span></div><div><b>02</b><strong>কনফার্ম করুন</strong><span>খরচ ও সময় জেনে সম্মতি দিন।</span></div><div><b>03</b><strong>পেয়ে যান</strong><span>আপডেটসহ আপনার কাজ সম্পন্ন।</span></div></div>
+
+      <section class="promo"><div><span class="eyebrow">AANO PROMISE</span><h2>আপনার সময়<br>আপনারই থাকুক।</h2><p>বিশ্বস্ত সহায়তা, পরিষ্কার খরচ, সহজ অভিজ্ঞতা।</p></div><div class="promo-stamp">AANO<br><small>MADE FOR<br>EVERYDAY</small></div></section>
+      <section class="section-head"><div><span class="eyebrow">RECENT ACTIVITY</span><h2>সাম্প্রতিক রিকোয়েস্ট</h2></div><button class="text-btn" data-tab="activity">সব দেখুন</button></section>
+      <div id="homeOrders" class="order-list"></div>
+    </main>
+
+    <main id="activityPage" class="page hidden"><div class="page-title"><span class="eyebrow">YOUR ACTIVITY</span><h1>রিকোয়েস্ট</h1><p>আপনার সব রিকোয়েস্ট এক জায়গায়।</p></div><div class="filter-row"><button class="filter active" data-filter="all">সব</button><button class="filter" data-filter="pending">চলমান</button><button class="filter" data-filter="done">সম্পন্ন</button></div><div id="allOrders" class="order-list"></div></main>
+
+    <main id="savedPage" class="page hidden"><div class="page-title"><span class="eyebrow">YOUR SHORTLIST</span><h1>পছন্দের</h1><p>যেসব সার্ভিস পরে ব্যবহার করতে চান।</p></div><div id="savedList" class="service-grid"></div></main>
+
+    <main id="accountPage" class="page hidden"><div class="page-title"><span class="eyebrow">YOUR SPACE</span><h1>অ্যাকাউন্ট</h1><p>আপনার পছন্দ ও অ্যাপ সেটিংস।</p></div><div class="profile-card"><div class="avatar">A</div><div><b>স্বাগতম AANO-তে</b><span>আপনার প্রোফাইল সেটআপ করুন</span></div><button class="round-btn" id="editProfile">✎</button></div><div class="settings-list"><button id="languageBtn"><span>文</span><div><b>ভাষা</b><small>বাংলা</small></div><strong>›</strong></button><button id="notifBtn"><span>♧</span><div><b>নোটিফিকেশন</b><small id="notifStatus">চালু</small></div><strong>›</strong></button><button id="helpBtn"><span>?</span><div><b>সাহায্য ও সাপোর্ট</b><small>প্রশ্ন বা সমস্যা জানান</small></div><strong>›</strong></button><button id="aboutBtn"><span>ⓘ</span><div><b>AANO সম্পর্কে</b><small>Preview version 2.0</small></div><strong>›</strong></button></div><p class="disclaimer">এটি একটি প্রিভিউ অ্যাপ। বাস্তব অর্ডার, পেমেন্ট বা রাইডার সার্ভিস এখনো সংযুক্ত নয়।</p></main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-tab="home"><span>⌂</span><small>হোম</small></button>
+      <button class="nav-item" data-tab="activity"><span>▤</span><small>রিকোয়েস্ট</small></button>
+      <button class="nav-create" data-action="new-order"><span>＋</span></button>
+      <button class="nav-item" data-tab="saved"><span>♡</span><small>পছন্দের</small></button>
+      <button class="nav-item" data-tab="account"><span>◎</span><small>অ্যাকাউন্ট</small></button>
+    </nav>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-grabber"></div><button class="modal-close" id="closeModal">×</button>
+      <span class="eyebrow">NEW REQUEST</span><h2 id="modalTitle">নতুন রিকোয়েস্ট</h2><p class="modal-sub">আপনার প্রয়োজনীয় তথ্য দিন।</p>
+      <form id="requestForm">
+        <label>কোন সার্ভিসটি প্রয়োজন?</label><select id="serviceSelect" required></select>
+        <label>কী আনতে / করতে হবে?</label><textarea id="detailsInput" rows="3" placeholder="বিস্তারিত লিখুন..." required></textarea>
+        <label>কোথা থেকে?</label><input id="pickupInput" placeholder="দোকান / ঠিকানা / লোকেশন">
+        <label>কোথায় পৌঁছে দিতে হবে?</label><input id="dropInput" placeholder="আপনার ডেলিভারি ঠিকানা" required>
+        <div class="two-col"><div><label>আপনার নাম</label><input id="nameInput" placeholder="নাম"></div><div><label>মোবাইল নম্বর</label><input id="phoneInput" type="tel" inputmode="tel" placeholder="01XXXXXXXXX" required></div></div>
+        <div class="notice">খরচ ও ডেলিভারির সময় কনফার্ম করার আগে আপনার অনুমতি নেওয়া হবে।</div>
+        <button class="primary-btn full" type="submit">রিকোয়েস্ট সেভ করুন <span>→</span></button>
+      </form>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
